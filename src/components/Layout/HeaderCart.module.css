@@ -1,0 +1,15 @@
+.icon {
+    height: 2rem;
+    width: 2rem;
+    color: white;
+}
+
+.cartBtn {
+    border: none;
+    background-color: transparent;
+}
+
+.icon:hover,
+.icon:active {
+    color: #545863;
+}
