@@ -1,7 +1,7 @@
 # Kookies
 
 ### MVP
-**Description**
+**Description:**
 An e-commerce site for cookies and baked goods.
 
 **Features**
