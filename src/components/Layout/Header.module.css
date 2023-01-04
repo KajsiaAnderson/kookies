@@ -36,6 +36,7 @@
   }
 
   .iconArrow{
+    cursor: pointer;
     height: 4rem;
     width: 4rem;
     color: #D5BDAF;
