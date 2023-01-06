@@ -1,0 +1,23 @@
+form {
+    text-align: right;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+  }
+  
+  .form button {
+    font: inherit;
+    cursor: pointer;
+    background-color: #D6CCC2;
+    border: 1px solid #D6CCC2;
+    color: white;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  
+  .form button:hover,
+  .form button:active {
+    background-color: #F5EBE0;
+    border-color: #F5EBE0;
+    color: #545863;
+  }

@@ -1,7 +1,8 @@
 .icon {
-    height: 2rem;
-    width: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     color: white;
+    position: relative;
 }
 
 .cartBtn {
@@ -14,3 +15,42 @@
 .icon:active {
     color: #545863;
 }
+
+.badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    transform: translate(15%, -125%);
+    font-size: 1rem;
+}
+
+.badge:hover,
+.badge:active {
+    color: #545863;
+}
+
+.bump {
+    animation: bump 300ms ease-out;
+  }
+  
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

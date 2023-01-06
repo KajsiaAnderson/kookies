@@ -15,6 +15,28 @@
     font-family: 'Raleway', sans-serif;
     font-size: 1.8rem;
   }
+  
+  .header ul{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .header button{
+    background-color: #D6CCC2;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 1.8rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .header button:hover,
+  .header button:active {
+    color: #545863;
+}
 
   .main-image {
     width: 100%;
@@ -30,6 +52,7 @@
 
   .arrow{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 2rem;

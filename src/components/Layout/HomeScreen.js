@@ -2,6 +2,7 @@ import React from 'react'
 // import {IoIosArrowDown} from 'react-icons/io'
 import { RxDoubleArrowDown } from 'react-icons/rx'
 import styles from './Header.module.css'
+import CookieContainer from './CookieContainer'
 
 const HomeScreen = () => {
   return (
@@ -13,6 +14,7 @@ const HomeScreen = () => {
                 <button className={styles.arrowBtn}>
                     <RxDoubleArrowDown className={styles.iconArrow} />
                 </button>
+              <CookieContainer />
             </div>
     </div>
   )
