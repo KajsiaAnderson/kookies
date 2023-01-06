@@ -1,24 +1,39 @@
-.meal {
+.cookies {
     display: flex;
-    justify-content: space-between;
-    margin: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #ccc;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;
 }
 
-.meal h3 {
+.cookies h3 {
     margin: 0 0 0.25rem 0;
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #545863;
 }
 
 .description {
     font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
 }
 
 .price {
-    margin-top: 0.25rem;
     font-weight: bold;
     color: #545863;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.cookies img {
+    width: 20vw;
 }

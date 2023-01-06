@@ -2,73 +2,44 @@ import React, { useEffect, useState } from 'react'
 import styles from './CookieContainer.module.css'
 import Card from '../UI/Card'
 import CookieItem from './CookieItem/CookieItem'
+import axios from 'axios'
 
 
 const CookieContainer = () => {
-    const [meals, setMeals] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [httpError, setHttpError] = useState()
+    const [products, setProducts] = useState([])
+    // const url = "http://localhost:3000/"
 
-    useEffect(() => {
-        const fetchMeals = async () => {
-            const response = await fetch('https://udemy-food-order-app-41018-default-rtdb.firebaseio.com/meals.json')
-
-            if (!response.ok) {
-                throw new Error('Something went wrong!')
-            }
-
-            const responseData = await response.json()
-
-            const loadedMeals = []
-
-            for (const key in responseData) {
-                loadedMeals.push({
-                    id: key,
-                    name: responseData[key].name,
-                    description: responseData[key].description,
-                    price: responseData[key].price
-                })
-            }
-
-            setMeals(loadedMeals)
-            setIsLoading(false)
-        }
-        
-        fetchMeals().catch(error => {
-            setIsLoading(false)
-            setHttpError(error.message)
+    const getCookies = () => {
+        axios.get("http://localhost:3000/getAllProducts")
+        .then((res) => {
+            console.log(res.data)
+            setProducts(res.data)
         })
+        .catch((err) => {
+          console.log("get all cookies error", err)
+        })
+      }
 
-    }, [])
+      useEffect(() => {
+       getCookies()
+      }, [])
 
-    if (isLoading) {
-        return (
-            <section className={styles.mealsLoading}>
-                <p>Loading...</p>
-            </section>
-        )
-    }
+      console.log('products', products)
 
-    if (httpError) {
-        return (
-            <section className={styles.mealsError}>
-                <p>{httpError}</p>
-            </section>
-        )
-    }
 
-    const cookiesList = meals.map(meal => (
-        <CookieItem
-            id={meal.id}
-            key={meal.id}
-            name={meal.name}
-            description={meal.description}
-            price={meal.price}
-        />
-    ))
+      const cookiesList = products.map(product => (
+          <CookieItem
+          id={product.id}
+          key={product.id}
+          image={product.image}
+          name={product.name}
+          description={product.description}
+          price={product.price}
+          />
+          ))
 
-    return (
-        <section className={styles.meals}>
+          return (
+              <section className={styles.meals}>
             <Card>
                 {cookiesList}
             </Card>

@@ -1,20 +1,23 @@
 import styles from './CartItem.module.css';
 
 const CartItem = (props) => {
-  const price = `$${props.price.toFixed(2)}`;
-
   return (
     <li className={styles['cart-item']}>
       <div>
         <h2>{props.name}</h2>
         <div className={styles.summary}>
-          <span className={styles.price}>{price}</span>
+          <span className={styles.price}>{props.price}</span>
         </div>
       </div>
-      <div className={styles.actions}>
-        <button onClick={props.onRemove}>−</button>
+      <div>
+        <div className={styles.actions}>
+          <button className={styles.btn} onClick={props.onRemove}>−</button>
           <span className={styles.amount}>{props.amount}</span>
-        <button onClick={props.onAdd}>+</button>
+          <button className={styles.btn} onClick={props.onAdd}>+</button>
+        </div>
+        <div className={styles.remove}>
+          <button className={styles.removeBtn} onClick={props.clearItem}>Remove</button>
+        </div>
       </div>
     </li>
   );

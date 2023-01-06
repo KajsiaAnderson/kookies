@@ -2,7 +2,7 @@ require('dotenv').config()
 const { CONNECTION_STRING } = process.env
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize(CONNECTION_STRING, {
+const db = new Sequelize(CONNECTION_STRING, {
     dialect: 'postgres',
     dialectOptions: {
         ssl: {
@@ -11,4 +11,4 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
     }
 })
 
-module.exports = { sequelize }
+module.exports = db

@@ -11,14 +11,18 @@ const Cart = (props) => {
     const [didSubmit, setDidSubmit] = useState(false)
     const cartCtx = useContext(CartContext)
 
-    const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`
+    const totalAmount = `$${cartCtx.totalAmount}`
     const hasItems = cartCtx.items.length > 0
 
     const cartItemRemoveHandler = id => {
         cartCtx.removeItem(id)
     }
 
-    const carItemAddHandler = item => {
+    const cartItemClearHandler = (id) => {
+        cartCtx.clearItem(id)
+    }
+
+    const cartItemAddHandler = item => {
         cartCtx.addItem({ ...item, amount: 1 })
     }
 
@@ -48,7 +52,8 @@ const Cart = (props) => {
                 amount={item.amount}
                 price={item.price}
                 onRemove={cartItemRemoveHandler.bind(null, item.id)}
-                onAdd={carItemAddHandler.bind(null, item)} />
+                onAdd={cartItemAddHandler.bind(null, item)}
+                clearItem={cartItemClearHandler.bind(null, item.id)} />
         ))}
     </ul>
 
