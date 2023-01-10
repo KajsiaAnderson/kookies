@@ -1,32 +1,25 @@
+import React from 'react';
+import { Route, Routes } from "react-router-dom";
 import './App.css';
-import React, { useState } from 'react'
+import DetailScreen from './components/Detail/DetailScreen';
+import Footer from './components/Layout/Footer';
 import Header from './components/Layout/Header';
 import HomeScreen from './components/Layout/HomeScreen';
-import Footer from './components/Layout/Footer';
-import { Route, Routes } from "react-router-dom"
 import CartProvider from './store/CartProvider';
-import Cart from './components/Cart/Cart';
 
 function App() {
-  const [cartIsShown, setCartIsShown] = useState(false)
-
-  const showCartHandler = () => {
-    setCartIsShown(true)
-  }
-
-  const hideCartHandler = () => {
-    setCartIsShown(false)
-  }
 
   return (
-    <CartProvider>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} />
-      <Routes>
-        <Route path="/" element={<HomeScreen />} />
-      </Routes>
-      <Footer />
-    </CartProvider>
+    <div className='App'>
+      <CartProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/kookie/:id" element={<DetailScreen />} />
+        </Routes>
+        <Footer />
+      </CartProvider>
+    </div>
   );
 }
 

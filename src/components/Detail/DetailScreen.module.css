@@ -1,3 +1,20 @@
+.detail {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    position: relative;
+    min-height: 67vh;
+}
+
+.kookie {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+    margin: 1rem 2rem 0 2rem;
+}
+
 .cookies {
     display: flex;
     justify-content: center;
@@ -21,7 +38,6 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-family: 'Open Sans', sans-serif;
 }
 
 .description {

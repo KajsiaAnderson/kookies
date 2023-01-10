@@ -1,27 +1,12 @@
-.meals {
+.kookieContainer {
     max-width: 60rem;
     width: 90%;
     margin: 2rem auto;
-    animation: meals-appear 1s ease-out forwards;
+    animation: kookieContainer-appear 1s ease-out forwards;
 }
 
-.meals ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
 
-.mealsLoading {
-    text-align: center;
-    color: white;
-}
-
-.mealsError {
-    text-align: center;
-    color: rgba(202, 21, 21, 0.868);
-}
-
-@keyframes meals-appear {
+@keyframes kookieContainer-appear {
     from {
         opacity: 0;
         transform: translateY(3rem);

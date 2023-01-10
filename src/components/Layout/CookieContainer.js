@@ -7,42 +7,43 @@ import axios from 'axios'
 
 const CookieContainer = () => {
     const [products, setProducts] = useState([])
-    // const url = "http://localhost:3000/"
 
-    const getCookies = () => {
-        axios.get("http://localhost:3000/getAllProducts")
-        .then((res) => {
-            console.log(res.data)
-            setProducts(res.data)
-        })
-        .catch((err) => {
-          console.log("get all cookies error", err)
-        })
-      }
+    const getKookies = () => {
+        axios.get('http://localhost:3001/getAllProducts')
+            .then((res) => {
+                setProducts(res.data)
+            })
+            .catch((err) => {
+                console.log("get all cookies error", err)
+            })
+    }
 
-      useEffect(() => {
-       getCookies()
-      }, [])
+    useEffect(() => {
+        getKookies()
+    }, [])
 
-      console.log('products', products)
+    // TODO: Remove console useeffect below when products is verifed
+    useEffect(() => {
+        console.log('products', products);
+    }, [products])
 
 
-      const cookiesList = products.map(product => (
-          <CookieItem
-          id={product.id}
-          key={product.id}
-          image={product.image}
-          name={product.name}
-          description={product.description}
-          price={product.price}
-          />
-          ))
+    const cookiesList = products.map(product => (
+        <CookieItem
+            id={product?.id}
+            key={product?.id}
+            image={product?.image}
+            name={product?.name}
+            // description={product?.description}
+            price={product?.price}
+        />
+    ))
 
-          return (
-              <section className={styles.meals}>
-            <Card>
+    return (
+        <section className={styles.kookieContainer}>
+            {cookiesList.length !== 0 && <Card>
                 {cookiesList}
-            </Card>
+            </Card>}
         </section>
     )
 }

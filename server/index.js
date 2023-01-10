@@ -2,9 +2,9 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const {PORT} = process.env
+const { PORT } = process.env
 const seed = require('./util/seed')
-const {getAllProducts} = require('./controllers/products')
+const { getAllProducts, getKookie } = require('./controllers/products')
 
 const db = require('./util/database')
 
@@ -19,11 +19,15 @@ app.use(cors())
 
 // ---Endpoints--- //
 app.get("/getAllProducts", getAllProducts)
+app.get("/kookie/:id", getKookie)
+
+
 
 
 db
-.sync()
-// .sync({force: true})
-// .then(() => seed())
-
-app.listen(PORT, () => console.log(`Server is listening on ${PORT}`))
+    .sync()
+    // .sync({force: true})
+    // .then(() => seed())
+    .then(() => {
+        app.listen(PORT, () => { console.log(`╭∩╮（︶︿︶）╭∩╮: ${PORT}`) })
+    })

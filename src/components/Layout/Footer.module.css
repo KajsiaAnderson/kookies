@@ -5,8 +5,10 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
-    margin-top: auto;
+    /* box-sizing: border-box; */
+    /* margin-top: auto; */
+    position: absolute;
+    /* bottom: 0 */
 }
 
 h5 {
