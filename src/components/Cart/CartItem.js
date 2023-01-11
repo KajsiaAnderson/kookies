@@ -3,6 +3,7 @@ import styles from './CartItem.module.css';
 const CartItem = (props) => {
   return (
     <li className={styles['cart-item']}>
+      <img className={styles.cartImage} src={props.image} alt="cookies" />
       <div>
         <h2>{props.name}</h2>
         <div className={styles.summary}>

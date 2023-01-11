@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #545863;
+    border-bottom: 1px solid #ccc;
     padding: 1rem 0;
     margin: 1rem 0;
   }
@@ -10,6 +10,7 @@
   .cart-item h2 {
     margin: 0 0 0.5rem 0;
     color: #545863;
+    font-size: 1.25rem;
   }
   
   .summary {
@@ -82,4 +83,10 @@
   .removeBtn:active {
     border-bottom: solid;
     border-width: thin;
+  }
+
+  .cartImage {
+    width: 8vw;
+    /* max-height: 10vh; */
+    padding: 1rem;
   }

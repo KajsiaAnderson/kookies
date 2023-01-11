@@ -19,7 +19,8 @@ const CookieItem = (props) => {
             id: props.id,
             name: props.name,
             amount: amount,
-            price: props.price
+            price: props.price,
+            image: props.image
         })
     }
 

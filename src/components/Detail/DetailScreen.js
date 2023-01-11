@@ -10,7 +10,7 @@ const DetailScreen = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/kookie/${id}`)
+        axios.get(`/kookie/${id}`)
             .then((res) => {
                 setKookie(res.data)
             })

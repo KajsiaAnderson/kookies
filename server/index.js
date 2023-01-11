@@ -2,7 +2,7 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const { PORT } = process.env
+const { SERVER_PORT } = process.env
 const seed = require('./util/seed')
 const { getAllProducts, getKookie } = require('./controllers/products')
 
@@ -24,10 +24,8 @@ app.get("/kookie/:id", getKookie)
 
 
 
-db
-    .sync()
-    // .sync({force: true})
-    // .then(() => seed())
-    .then(() => {
-        app.listen(PORT, () => { console.log(`╭∩╮（︶︿︶）╭∩╮: ${PORT}`) })
-    })
+// db
+//     .sync()
+// .sync({force: true})
+// .then(() => seed())
+app.listen(SERVER_PORT, () => { console.log(`╭∩╮（︶︿︶）╭∩╮: ${SERVER_PORT}`) })

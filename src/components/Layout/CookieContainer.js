@@ -9,7 +9,7 @@ const CookieContainer = () => {
     const [products, setProducts] = useState([])
 
     const getKookies = () => {
-        axios.get('http://localhost:3001/getAllProducts')
+        axios.get('/getAllProducts')
             .then((res) => {
                 setProducts(res.data)
             })
