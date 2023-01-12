@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { SECRET } = process.env
-const { User } = require('../models/user')
+const {User} = require('../util/models')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
@@ -20,7 +20,7 @@ const createToken = (email, id) => {
 module.exports = {
     register: async (req, res) => {
         try {
-            const { email, password } = req.body
+            const { firstname, lastname, email, password } = req.body
             const foundUser = await User.findOne({
                 where: { email: email }
             })
@@ -30,6 +30,8 @@ module.exports = {
                 const salt = bcrypt.genSaltSync(10)
                 const hash = bcrypt.hashSync(password, salt)
                 const newUser = await User.create({
+                    firstname: firstname,
+                    lastname: lastname,
                     email: email,
                     hashedPass: hash
                 })
@@ -38,6 +40,8 @@ module.exports = {
                 console.log('token', token)
                 const exp = Date.now() + 1000 * 60 * 60 * 48
                 res.status(200).send({
+                    firstname: newUser.dataValues.firstname,
+                    lastname: newUser.dataValues.lastname,
                     email: newUser.dataValues.email,
                     userId: newUser.dataValues.id,
                     token: token,
@@ -69,10 +73,10 @@ module.exports = {
                         exp: exp
                     })
                 } else {
-                    res.status(400).send('cannot log in')
+                    res.status(400).send('Invalid log in')
                 }
             } else {
-                res.status(400).send('cannot log in')
+                res.status(400).send('Invalid log in')
             }
         } catch (error) {
             console.log('login error', error)

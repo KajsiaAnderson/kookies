@@ -5,6 +5,7 @@ const cors = require('cors')
 const { SERVER_PORT } = process.env
 const seed = require('./util/seed')
 const { getAllProducts, getKookie } = require('./controllers/products')
+const {login, register} = require('./controllers/auth')
 
 const db = require('./util/database')
 
@@ -20,6 +21,8 @@ app.use(cors())
 // ---Endpoints--- //
 app.get("/getAllProducts", getAllProducts)
 app.get("/kookie/:id", getKookie)
+app.post('/register', register)
+app.post('/login', login)
 
 
 

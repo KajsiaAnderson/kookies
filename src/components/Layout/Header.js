@@ -1,18 +1,20 @@
-import React, {useState} from 'react'
+import React, { useState, useContext } from 'react'
 import styles from './Header.module.css'
 import HeaderCart from './HeaderCart'
 import { Link } from 'react-router-dom'
 import Cart from '../Cart/Cart'
+import AuthContext from '../../store/auth-context'
 
 const Header = () => {
+    const authCtx = useContext(AuthContext)
     const [cartIsShown, setCartIsShown] = useState(false)
 
     const showCartHandler = () => {
-      setCartIsShown(true)
+        setCartIsShown(true)
     }
 
     const hideCartHandler = () => {
-      setCartIsShown(false)
+        setCartIsShown(false)
     }
 
     return (
@@ -22,12 +24,18 @@ const Header = () => {
                     <h1>k o o k i e s</h1>
                 </Link>
                 <ul>
-                    <Link to="/">
-                        <button>home</button>
-                    </Link>
-                    <Link to="/auth">
-                        <button>login</button>
-                    </Link>
+                    <li>
+                        <Link to='/'>Home</Link>
+                    </li>
+                   {!authCtx.token &&  <li>
+                        <Link to="/auth">login</Link>
+                    </li>}
+                    {authCtx.token && <li>
+                        <Link to='profile'>Profile</Link>
+                    </li>}
+                   {authCtx.token &&  <li>
+                        <button className='.logout-btn ' onClick={authCtx.logout}>Logout</button>
+                    </li>}
                     {cartIsShown && <Cart onClose={hideCartHandler} />}
                     <HeaderCart onClick={showCartHandler} />
                 </ul>

@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
 }
+
 .cookies button {
     margin: 0 0 0.25rem 0;
     font-size: 2.5rem;
@@ -26,13 +27,14 @@
 
 .description {
     font-family: 'Raleway', sans-serif;
+    color: #545863;
     display: flex;
     justify-content: center;
     font-size: 1.4rem;
+    font-weight: 100;
 }
 
 .price {
-    font-weight: bold;
     color: #545863;
     font-size: 1.5rem;
     display: flex;
@@ -42,4 +44,6 @@
 
 .cookies img {
     width: 20vw;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
