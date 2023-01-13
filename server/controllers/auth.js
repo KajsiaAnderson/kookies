@@ -40,8 +40,6 @@ module.exports = {
                 console.log('token', token)
                 const exp = Date.now() + 1000 * 60 * 60 * 48
                 res.status(200).send({
-                    firstname: newUser.dataValues.firstname,
-                    lastname: newUser.dataValues.lastname,
                     email: newUser.dataValues.email,
                     userId: newUser.dataValues.id,
                     token: token,
@@ -76,7 +74,7 @@ module.exports = {
                     res.status(400).send('Invalid log in')
                 }
             } else {
-                res.status(400).send('Invalid log in')
+                res.status(400).send('Username does not exist')
             }
         } catch (error) {
             console.log('login error', error)

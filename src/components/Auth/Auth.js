@@ -19,7 +19,8 @@ const Auth = () => {
         setDisplay('none')
 
         const body = {
-
+            firstname,
+            lastname,
             email,
             password
         }
