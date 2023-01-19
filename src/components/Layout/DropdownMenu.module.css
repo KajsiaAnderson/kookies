@@ -1,0 +1,27 @@
+.icon {
+    height: 2rem;
+    width: 2rem;
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .icon:hover,
+  .icon:active {
+    color: #545863;
+    background-color: transparent;
+  }
+
+  .orderLink {
+    text-decoration: none;
+    color: #545863;
+  }
+
+  .logoutLink {
+    color: #545863;
+  }
+
+
+  
