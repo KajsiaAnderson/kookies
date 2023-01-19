@@ -7,7 +7,10 @@ const CartItem = (props) => {
       <div>
         <h2>{props.name}</h2>
         <div className={styles.summary}>
-          <span className={styles.price}>{props.price}</span>
+          <span className={styles.price}>${props.price}</span>
+        </div>
+        <div className={styles.remove}>
+          <button className={styles.removeBtn} onClick={props.clearItem}>Remove</button>
         </div>
       </div>
       <div>
@@ -15,9 +18,6 @@ const CartItem = (props) => {
           <button className={styles.btn} onClick={props.onRemove}>−</button>
           <span className={styles.amount}>{props.amount}</span>
           <button className={styles.btn} onClick={props.onAdd}>+</button>
-        </div>
-        <div className={styles.remove}>
-          <button className={styles.removeBtn} onClick={props.clearItem}>Remove</button>
         </div>
       </div>
     </li>
