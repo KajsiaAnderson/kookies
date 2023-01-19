@@ -1,3 +1,27 @@
 .profile {
-margin-top: 15vh;
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    min-height: 62vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #545863;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.details {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:5vw;
+    padding: 1rem;
+    width: 50vw;
 }

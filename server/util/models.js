@@ -28,4 +28,27 @@ const User = db.define('user', {
     hashedPass: DataTypes.STRING
 })
 
-module.exports = {Product, User}
+const Order = db.define('order', {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
+    totalAmount: DataTypes.DECIMAL(10,2)
+})
+
+const Order_Item = db.define('order_item', {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
+    amount: DataTypes.INTEGER,
+    name: DataTypes.STRING,
+    price: DataTypes.DECIMAL(10,2)
+})
+
+
+module.exports = {Product, User, Order, Order_Item}

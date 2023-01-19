@@ -1,45 +1,56 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styles from './Profile.module.css'
-// import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import AuthContext from '../../store/auth-context'
 import User from './User'
+import Card from '../UI/Card'
 
 const Profile = () => {
-  const {userId} = useContext(AuthContext)
+  const { userId } = useContext(AuthContext)
   const [user, setUser] = useState([])
-  // const { id } = useParams()
 
 
   useEffect(() => {
-      axios.get(`/user/${userId}`)
+    axios.get(`/user/${userId}`)
       .then((res) => {
-          setUser(res.data)
+        setUser(res.data)
       })
       .catch(err => {
-          console.log('error getting user', err)
+        console.log('error getting user', err)
       })
-}, [userId])
+  }, [userId])
 
   useEffect(() => {
-      console.log('user', user);
+    console.log('user', user);
   }, [user])
 
-  const mappedUser = user.map(user => {
-    return <User
-      id={user?.id}
-      key={user?.id}
-      firstname={user?.firstname}
-    />
-})
+
+  const profileDisplay = user.map((user) => {
+    return <User details={user} />
+  })
 
   return (
-    <div className={styles.profile}>
-      <div className={styles.kookie}>{userId}</div>
-      <div className={styles.kookie}>Welcome {user.length !== 0 && user[0].firstname}</div>
-      <div className={styles.kookie}>{mappedUser}</div>
-    </div>
-  )
+    <div>
+      <div className='banner' style={{
+        width: '100vw',
+        // height: '82vh',
+        background: `url('https://static.vecteezy.com/system/resources/previews/012/221/444/large_2x/cookie-crumbs-on-white-background-free-photo.JPG') no-repeat center/cover`,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <div className={styles.profile}>
+          {user.length === 0 ? <h3 className={styles.order}>No Orders Found</h3> : <Card>
+            <div>
+              <h3 className={styles.order}>Order Details</h3>
+            </div>
+            <div className={styles.details}>{profileDisplay}</div>
+          </Card>}
+        </div>
+      </div>
+      </div>
+      )
 }
 
-export default Profile
+      export default Profile

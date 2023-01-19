@@ -74,7 +74,7 @@ module.exports = {
                     res.status(400).send('Invalid log in')
                 }
             } else {
-                res.status(400).send('Username does not exist')
+                res.status(400).send('Email does not exist')
             }
         } catch (error) {
             console.log('login error', error)

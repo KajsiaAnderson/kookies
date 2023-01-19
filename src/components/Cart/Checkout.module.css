@@ -1,7 +1,12 @@
 .form {
-  margin: 1rem 0;
+  margin: 2rem 0;
   /* height: 15rem; */
   overflow: auto;
+  border-top: 1px solid #ccc;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .control {
@@ -27,11 +32,12 @@
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+  padding-top: 1rem;
 }
 
 .actions button {
   font: inherit;
-  color: #5a1a01;
+  color: #D5BDAF;
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -41,7 +47,8 @@
 
 .actions button:hover,
 .actions button:active {
-  background-color: #D6CCC2;
+  background-color: #F5EBE0;
+  /* color: #545863; */
 }
 
 .actions .submit {
@@ -53,7 +60,9 @@
 
 .actions .submit:hover,
 .actions .submit:active {
+  border: 1px solid #737784;
   background-color: #737784;
+  /* color: white; */
 }
 
 .invalid label {
@@ -67,4 +76,33 @@
 
 p {
   display: flex;
+  justify-content: center;
+  color: #545863;
+}
+
+.pleaseLogin {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 1rem;
+}
+
+.pleaseLoginBtn {
+  margin: 0 0.5rem;
+  background-color: transparent;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+}
+
+
+.pleaseLogin a {
+  color: #545863;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.pleaseLogin a:hover {
+  color: #D5BDAF;
+  border-bottom: 1px solid #D5BDAF;
 }

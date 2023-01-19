@@ -1,0 +1,11 @@
+.orderDetail {
+    padding: 1rem;
+    color: #545863;
+}
+
+.orderTotal {
+    font-weight: bold;
+    color: #545863;
+    padding: 1rem;
+
+}

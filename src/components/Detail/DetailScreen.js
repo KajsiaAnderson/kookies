@@ -27,12 +27,12 @@ const DetailScreen = () => {
 
     const mappedKookie = kookie.map(kookie => {
         return <CookieItem
-          id={kookie.id}
-          key={kookie.id}
-          image={kookie.image}
-          name={kookie.name}
-          description={kookie.description}
-          price={kookie.price}
+            id={kookie.id}
+            key={kookie.id}
+            image={kookie.image}
+            name={kookie.name}
+            description={kookie.description}
+            price={kookie.price}
         />
     })
 
@@ -42,7 +42,6 @@ const DetailScreen = () => {
                 <div className={styles.kookie}>{mappedKookie}</div>
                 <div className={styles.description}>{kookie.description}</div>
             </Card>
-            
         </div>
     )
 }

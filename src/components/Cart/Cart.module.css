@@ -45,3 +45,31 @@
   background-color: #D5BDAF;
   color: white;
 }
+
+.closeActions{
+  text-align: center;
+  margin: 1.5rem;
+}
+
+.closeBtn {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid #D5BDAF;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  background-color: #D5BDAF;
+  color: white;
+}
+
+.closeBtn:hover {
+  background-color: #F5EBE0;
+  border-color: #F5EBE0;
+  color: #545863;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  color: #545863;
+  margin-top: 30vh;
+}

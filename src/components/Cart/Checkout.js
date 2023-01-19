@@ -1,10 +1,19 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useContext } from 'react'
 import styles from './Checkout.module.css'
+import AuthContext from '../../store/auth-context';
+import { Link } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const isEmpty = value => value.trim() === '';
 const isFiveChars = value => value.trim().length === 5;
 
 const Checkout = (props) => {
+  const authCtx = useContext(AuthContext)
+
+  // const navigate = useNavigate()
+  // const handleClick = () => {navigate(`/auth`)}
+
+
   const [formInputValidity, setFormInputValidity] = useState({
     name: true,
     street: true,
@@ -57,34 +66,41 @@ const Checkout = (props) => {
   const cityControlClasses = `${styles.control} ${formInputValidity.city ? '' : styles.invalid}`
 
   return (
-    <form className={styles.form} onSubmit={confirmHandler}>
-      <div className={nameControlClasses}>
-        <label htmlFor='name'>Your Name</label>
-        <input type='text' id='name' ref={nameInputRef} />
-        {!formInputValidity.name && <p>Please enter a valid name</p>}
-      </div>
-      <div className={streetControlClasses}>
-        <label htmlFor='street'>Street</label>
-        <input type='text' id='street' ref={streetInputRef} />
-        {!formInputValidity.street && <p>Please enter a valid street</p>}
-      </div>
-      <div className={postalControlClasses}>
-        <label htmlFor='postal'>Postal Code</label>
-        <input type='text' id='postal' ref={postalInputRef} />
-        {!formInputValidity.postal && <p>Please enter a valid postal code</p>}
-      </div>
-      <div className={cityControlClasses}>
-        <label htmlFor='city'>City</label>
-        <input type='text' id='city' ref={cityInputRef} />
-        {!formInputValidity.city && <p>Please enter a valid city</p>}
-      </div>
-      <div className={styles.actions}>
-        <button type='button' onClick={props.onCancel}>
-          Cancel
-        </button>
-        <button className={styles.submit}>Confirm</button>
-      </div>
-    </form>
+    <div>
+      {!authCtx.token ?
+        <div className={styles.pleaseLogin}>
+          Please <button className={styles.pleaseLoginBtn} onClick={props.onCancel}>
+            <Link to='/auth'>Login</Link></button> to complete your order.
+        </div> :
+        <form className={styles.form} onSubmit={confirmHandler}>
+          <div className={nameControlClasses}>
+            <label htmlFor='name'>Name</label>
+            <input type='text' id='name' ref={nameInputRef} />
+            {!formInputValidity.name && <p>Please enter a valid name</p>}
+          </div>
+          <div className={streetControlClasses}>
+            <label htmlFor='street'>Street</label>
+            <input type='text' id='street' ref={streetInputRef} />
+            {!formInputValidity.street && <p>Please enter a valid street</p>}
+          </div>
+          <div className={cityControlClasses}>
+            <label htmlFor='city'>City</label>
+            <input type='text' id='city' ref={cityInputRef} />
+            {!formInputValidity.city && <p>Please enter a valid city</p>}
+          </div>
+          <div className={postalControlClasses}>
+            <label htmlFor='postal'>Postal Code</label>
+            <input type='text' id='postal' ref={postalInputRef} />
+            {!formInputValidity.postal && <p>Please enter a valid postal code</p>}
+          </div>
+          <div className={styles.actions}>
+            <button type='button' onClick={props.onCancel}>
+              Cancel
+            </button>
+            <button className={styles.submit}>Confirm</button>
+          </div>
+        </form>}
+    </div>
   )
 }
 

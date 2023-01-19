@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
-// import { FiShoppingCart } from 'react-icons/fi'
-import { BsBag } from 'react-icons/bs'
+// import { BsBag } from 'react-icons/bs'
+import { CiShoppingCart } from 'react-icons/ci'
 import styles from './HeaderCart.module.css'
 import CartContext from '../../store/cart-context'
 
@@ -34,7 +34,7 @@ const HeaderCart = (props) => {
     return (
         <div>
             <button className={btnClasses} onClick={props.onClick}>
-                <BsBag className={styles.icon} />
+                <CiShoppingCart size="3.25rem" className={styles.icon} />
                 {numberOfCartItems === 0 ? !numberOfCartItems : <div className={styles.badge}>{numberOfCartItems}</div>}
             </button>
         </div>

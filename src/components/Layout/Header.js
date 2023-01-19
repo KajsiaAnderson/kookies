@@ -4,6 +4,8 @@ import HeaderCart from './HeaderCart'
 import { Link } from 'react-router-dom'
 import Cart from '../Cart/Cart'
 import AuthContext from '../../store/auth-context'
+// import { CiUser } from 'react-icons/ci'
+import PositionedMenu from './DropdownMenu'
 
 const Header = () => {
     const authCtx = useContext(AuthContext)
@@ -25,17 +27,12 @@ const Header = () => {
                 </Link>
                 <ul>
                     <li>
-                        <Link to='/'>Home</Link>
+                        <Link to='/'>home</Link>
                     </li>
-                   {!authCtx.token &&  <li>
+                    {!authCtx.token && <li>
                         <Link to="/auth">login</Link>
                     </li>}
-                    {authCtx.token && <li>
-                        <Link to='profile'>Profile</Link>
-                    </li>}
-                   {authCtx.token &&  <li>
-                        <button className='.logout-btn ' onClick={authCtx.logout}>Logout</button>
-                    </li>}
+                    {authCtx.token && <PositionedMenu />}
                     {cartIsShown && <Cart onClose={hideCartHandler} />}
                     <HeaderCart onClick={showCartHandler} />
                 </ul>

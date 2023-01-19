@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
+  padding: 0 5%;
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
   z-index: 10;
   font-family: 'Raleway', sans-serif;
@@ -27,7 +27,7 @@
 .header ul {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   list-style-type: none;
 }
@@ -104,4 +104,19 @@ header a{
 .arrowBtn {
   border: none;
   background-color: transparent;
+}
+
+.icon {
+  height: 2rem;
+  width: 2rem;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon:hover,
+.icon:active {
+  color: #545863;
 }
