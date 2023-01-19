@@ -58,13 +58,17 @@ main {
 
 .orBtn {
     border: none;
-    border-bottom: 1px solid #D6CCC2;
-    color: #D6CCC2;
+    border-bottom: 1px solid #545863;
+    color: #545863;
     background-color: transparent;
     margin: 1.5rem;
     cursor: pointer;
     font-family: 'Raleway', sans-serif;
+}
 
+.orBtn:hover{
+    border-bottom: 1px solid #EDEDE9;
+    color: #EDEDE9;
 }
 
 .msg {

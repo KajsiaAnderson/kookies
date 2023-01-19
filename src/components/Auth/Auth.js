@@ -45,7 +45,7 @@ const Auth = () => {
             <div className='banner' style={{
                 width: '100vw',
                 height: '82vh',
-                background: `linear-gradient(130deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://img.freepik.com/free-photo/wide-selective-closeup-shot-stack-baked-chocolate-cookies_181624-3987.jpg?w=2000&t=st=1673483204~exp=1673483804~hmac=43298e2e24e9c1475615c2e924a293eae0d0c3f66edb69d6e98e0ed6fc5dd453') no-repeat center/cover`,
+                background: `linear-gradient(130deg, rgba(255,255,255,0.2), rgba(0,0,0,0.2)), url('https://img.freepik.com/free-photo/wide-selective-closeup-shot-stack-baked-chocolate-cookies_181624-3987.jpg?w=1800&t=st=1674155526~exp=1674156126~hmac=31a91e689aab4f64685175119666341393acc5b62967354f4971b8949feff5d0') no-repeat center/cover`,
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
