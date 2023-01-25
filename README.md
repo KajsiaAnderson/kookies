@@ -4,6 +4,8 @@
 **Description:**
 An e-commerce site for cookies and baked goods.
 
+![kookies home page](./wireframes/kookies.png)
+
 **Features**
 - User can register/login
 - User can browse list of products
